@@ -25,3 +25,17 @@ npm test
 ```sh
 npm run storybook
 ```
+
+## Final Product
+
+1. Day View
+![""](https://github.com/Jackthz97/scheduler/blob/master/docs/Day%20View.png?raw=true)
+
+2. Book New Appointment
+![""](https://github.com/Jackthz97/scheduler/blob/master/docs/New%20Appointment.png?raw=true)
+
+3. Booked New Appointment
+![""](https://github.com/Jackthz97/scheduler/blob/master/docs/Booked%20New%20Interview%20Appointment.png?raw=true)
+
+4. Delete Booked Appointment
+![""](https://github.com/Jackthz97/scheduler/blob/master/docs/Delete%20Appointment.png?raw=true)
