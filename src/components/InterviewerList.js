@@ -1,5 +1,5 @@
-import React, { useState } from "react";
-import className from "classnames";
+import React from "react";
+
 import InterviewerListItem from "./InterviewerListItem";
 import "components/InterviewerList.scss";
 import "components/InterviewerListItem.scss";

@@ -26,14 +26,13 @@ export default function useApplicationData() {
     });
   }, []);
 
-
   const bookInterview = (id, interview) => {
-    const appointment = {
+    const appointment = { // creates a copy of appointment
       ...state.appointments[id],
       interview: { ...interview }
     };
     
-    const appointments = {
+    const appointments = { // creates a copy appointments with the new appointment object
       ...state.appointments,
       [id]: appointment
     };
@@ -41,7 +40,7 @@ export default function useApplicationData() {
     const daysObj = state.days;
     let spots = 0;
     let dayId = 0;
-    for (let day of daysObj) {
+    for (let day of daysObj) { // loop through days object and updates the spots
         for (let i = 0; i < day.appointments.length; i++) {
           if (day.appointments[i] === id) {
             dayId = day.id;
@@ -54,32 +53,30 @@ export default function useApplicationData() {
           }
         }
       }
-
-      const newDayId = dayId - 1;
+    const newDayId = dayId - 1;
       
-      const day = {
-        ...state.days[newDayId],
-        spots: spots
-      }
+    const day = { // makes a copys of the updated day object
+      ...state.days[newDayId],
+      spots: spots
+    }
 
-      let days = [
-        ...state.days,
-      ]
-      days.splice(newDayId, 1, day);
+    let days = [ // makes a copy of the days array with the updated day objects
+      ...state.days,
+    ]
+    days.splice(newDayId, 1, day);
 
 
     return axios.put(`api/appointments/${id}`, {interview: interview})
     .then(() => setState({...state, appointments, days}));
-
   }
 
 
   const cancelInterview = (id) => {
-    const appointment = {
+    const appointment = { // makes a copy of the appointment interview to null
       ...state.appointments[id],
       interview: null
     }
-    const appointments = {
+    const appointments = { // makes a copy of appointments with the updated appointment object
       ...state.appointments,
       [id]: appointment
     }
@@ -87,7 +84,7 @@ export default function useApplicationData() {
     const daysObj = state.days;
     let spots = 0;
     let dayId = 0;
-    for (let day of daysObj) {
+    for (let day of daysObj) { // loop through days object and updates the spots
         for (let i = 0; i < day.appointments.length; i++) {
           if (day.appointments[i] === id) {
             dayId = day.id;
@@ -100,19 +97,17 @@ export default function useApplicationData() {
           }
         }
       }
-
-      const newDayId = dayId - 1;
+    const newDayId = dayId - 1;
       
-      const day = {
-        ...state.days[newDayId],
-        spots: spots
-      }
+    const day = {
+      ...state.days[newDayId],
+      spots: spots
+    }
 
-      let days = [
-        ...state.days,
-      ]
-      days.splice(newDayId, 1, day);
-
+    let days = [
+      ...state.days,
+    ]
+    days.splice(newDayId, 1, day);
 
     return axios.delete(`api/appointments/${id}`)
     .then(() => setState({...state, appointments, days}));
