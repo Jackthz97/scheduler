@@ -3,6 +3,7 @@ import className from "classnames";
 import InterviewerListItem from "./InterviewerListItem";
 import "components/InterviewerList.scss";
 import "components/InterviewerListItem.scss";
+import PropTypes from 'prop-types';
 
 /*
 Our <InterviewerList> receives three props:
@@ -12,9 +13,6 @@ interviewer: number - a number that represents the id of the currently selected 
 */
 
 export default function InterviewerList(props) {
-  // const InterviewerClass = className("interviewers", {
-  //   "interviewers__item--selected": props.selected
-  // })
 
   const interviewerData = props.interviewers.map((e) => {
     return (
@@ -35,3 +33,7 @@ export default function InterviewerList(props) {
     </section>
   );
 }
+
+InterviewerList.propTypes = {
+  interviewers: PropTypes.array.isRequired
+};
