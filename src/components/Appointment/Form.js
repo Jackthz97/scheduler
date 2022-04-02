@@ -18,9 +18,12 @@ export default function Form(props) {
     props.onCancel();
   };
 
-  function validate(name) { // check if student name is input is empty
+  function validate(name, interviewer) { // check if student or interviewer input is empty
     if (name === "") {
       setError("Student name cannot be blank");
+      return;
+    } else if (interviewer === null){
+      setError("Please select a interviewer")
       return;
     }
   
@@ -54,7 +57,7 @@ export default function Form(props) {
           <Button danger onClick={cancel}>
             Cancel
           </Button>
-          <Button confirm onClick={() => validate(student)}>
+          <Button confirm onClick={() => validate(student, interviewer)}>
             Save
           </Button>
         </section>
