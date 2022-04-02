@@ -1,12 +1,10 @@
-import React from "react";
-
 export function getAppointmentsForDay(state, day) {
   const ids = [];
   for (let i = 0; i < state.days.length; i++) {
     if (state.days[i].name === day) {
-      state.days[i].appointments.map((data) => {
-        ids.push(state.appointments[data]);
-      });
+      state.days[i].appointments.map(data => 
+        ids.push(state.appointments[data])
+      );
       return ids;
     }
   }
@@ -29,9 +27,9 @@ export function getInterviewersForDay(state, day) {
   const ids = [];
   for (let i = 0; i < state.days.length; i++) {
     if (state.days[i].name === day) {
-      state.days[i].interviewers.map((data) => {
-        ids.push(state.interviewers[data]);
-      });
+      state.days[i].interviewers.map(data => 
+        ids.push(state.interviewers[data])
+      );
       return ids;
     }
   }
